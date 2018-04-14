@@ -8,7 +8,7 @@
     name: 'home',
     data () {
       return {
-        msg: '这是首页内容'
+        msg: '首页'
       }
     }
   }
