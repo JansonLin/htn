@@ -1,6 +1,33 @@
 <template>
   <div class="container">
-    <div class="swiper-container" id="swiper">
+    <swiper :options="swiperOption" ref="mySwiper">
+      <swiper-slide>
+        <a href="#">
+          <img src="../../assets/banner_01.jpg" alt="banner">
+        </a>
+      </swiper-slide>
+      <swiper-slide>
+        <a href="#">
+          <img src="../../assets/banner_02.jpg" alt="banner">
+        </a>
+      </swiper-slide>
+      <swiper-slide>
+        <a href="#">
+          <img src="../../assets/banner_03.jpg" alt="banner">
+        </a>
+      </swiper-slide>
+      <swiper-slide>
+        <a href="#">
+          <img src="../../assets/banner_01.jpg" alt="banner">
+        </a>
+      </swiper-slide>
+      <swiper-slide>
+        <a href="#">
+          <img src="../../assets/banner_02.jpg" alt="banner">
+        </a>
+      </swiper-slide>
+    </swiper>
+    <!--<div class="swiper-container" id="swiper">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           <a href="#">
@@ -28,7 +55,7 @@
           </a>
         </div>
       </div>
-    </div>
+    </div>-->
     <div class="header">
       <div class="header-inner clearfix">
         <div class="fl">
@@ -85,25 +112,29 @@
   </div>
 </template>
 <script>
-  import Swiper from 'swiper'
-  import 'swiper/dist/css/swiper.min.css'
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
   export default {
     name: 'home',
-    mounted() {
-      new Swiper('#swiper', {
-        lazy: true,
-        loop: true,
-        // autoplay: {
-        //   delay: 2000
-        // }
-      })
-    },
     data() {
       return {
-        msg: '首页'
+        swiperOption: {
+          loop: true,
+          autoplay: {
+            delay: 2000
+          }
+        }
       }
     },
-    methods: {}
+    methods: {},
+    computed: {
+      swiper() {
+        return this.$refs.mySwiper.swiper
+      }
+    },
+    components: {
+      swiper,
+      swiperSlide
+    }
   }
 </script>
 <style rel="stylesheet/scss" lang="scss" scoped>
